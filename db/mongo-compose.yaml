@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+  mongo:
+    image: mongo
+    hostname: mongo
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    networks:
+      - main-network
+
+  mongo-express:
+    image: mongo-express
+    # restart: always
+    ports:
+      - "8081:8081"
+    networks:
+      - main-network
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://mongo:27017/
+      
+networks:
+  main-network:
+    external:
+      name: CONTEST_NETWORK
