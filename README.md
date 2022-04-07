@@ -1,3 +1,3 @@
 # Compose files for docker
 
-🏗📦 Docker compopses
+🏗📦 Docker composes
